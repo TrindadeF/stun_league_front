@@ -1,0 +1,22 @@
+
+<div class="bg-img">
+   <app-header></app-header>
+    <div class="container">
+            <div class="fields">
+                <img src="/assets/img/logo.png" height="550px">
+            </div>
+
+            <div class="fields">
+                <h1 style="color: whitesmoke;">Dê um play agora em sua competição!</h1>
+                <p style="color: whitesmoke;">Aproveite seu jogo, nós cuidaremos do resto</p>
+            </div>
+
+
+        <div class="buttons d-flex flex-column align-items-center" id="buttons">
+            <button class="btnPlay " id="btnPlay" (click)="navigate()" style="color: whitesmoke;">Jogar Agora</button>
+            <button class="btnStore" id="btnStore" style="color: whitesmoke;">Conhecer Loja</button>
+            <button class="btnRanking" id="btnRanking" style="color: white;" [routerLink]="['/ranking']">Stun Ranking</button>
+        </div>
+    </div>
+</div>
+

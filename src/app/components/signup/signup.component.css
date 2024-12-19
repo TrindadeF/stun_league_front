@@ -1,0 +1,69 @@
+
+.image {
+    filter: blur(5);
+}
+.overlay {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    height: 90%;
+    background-color: rgba(20, 20, 20, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translate(-50%, -50%);
+}
+
+.overlay-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+}
+
+
+.fieldsForm {
+    margin-bottom: 10px;
+}
+
+.fieldsForm label {
+    display: block;
+    color: white;
+}
+.fieldsForm input {
+    width: 400px;
+    height: 35px;
+    background-color: transparent;
+    color: white;
+    border: 1px solid rgb(82, 82, 82);
+    border-radius: 6px; /* Adiciona uma borda fina de 1px sólida branca */
+
+}
+
+.fields-images-oauth img {
+    width: 20px;
+    height: 20px;
+    margin-bottom: 10px;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    margin-top: -30px;
+}
+
+.btnSignin{
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-color: white;
+    background-color: transparent;
+    border-radius: 6px;
+
+}
+
+.btnFinish {
+    border: none;
+    width: 100px;
+    border-radius: 6px;
+    margin-left: 10px;
+}
+
+

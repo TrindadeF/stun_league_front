@@ -1,0 +1,296 @@
+.container-stun-background {
+    position: absolute;
+    background-image: url('https://i.ibb.co/F0JFk20/background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: left center; /* Ajusta a posição da imagem de fundo */
+    width: 100vw; /* Garante que a largura cubra toda a viewport */
+    height: 120vh;
+    transform: translateX(200px); /* Ajuste o valor conforme necessário */
+}
+
+.profile-header-container {
+    position: relative;
+    left: 15%;
+    width: 100vh;
+    height: 100vh;
+    margin-top: 40px;
+}
+
+.header {
+    position: relative;
+    left: 3%;
+}
+
+.header-btns {
+    position: relative;
+    display: inline-block;
+    margin-right: 10px;
+    margin-top: 10px;
+    right: 7%;
+}
+
+#statistics {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 12px;
+    gap: 4px;
+    width: 110px;
+    height: 40px;
+    background: #660000;
+    border-radius: 8px;
+    border: none;
+    color: white;
+}
+
+.header-btns button {
+    background-color: transparent;
+    color: gray;
+    border: none;
+}
+
+.header-profile-info {
+    display: flex;
+    align-items: center; /* Alinha verticalmente os elementos */
+    gap: 15px; /* Espaçamento entre a imagem, nome e badges */
+    margin-top: 20px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.8em;
+    
+}
+
+.header-profile-img img {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+}
+
+.header-profile-name {
+    text-overflow: ellipsis; /* Adiciona reticências se o nome for muito longo */
+}
+
+.header-badge-icons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 500px;
+    transform: translateX(300px); /* Move 20px para a esquerda */
+
+}
+
+.boxes-container {
+    position: relative;
+    display: flex;
+    width: 10px;
+    left: 3%;
+    gap: 20px
+
+
+
+}
+.box-stun {
+    position: relative;
+    /* Stun coins */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px;
+    gap: 16px;
+
+    width: 528px;
+    height: 132px;
+
+    background: #141414;
+    border-radius: 24px;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 1;
+    left: 3%;
+    margin-top: 20px;
+
+}
+
+
+#box-stun-price-btn {
+    /* Button */
+    position: relative;
+
+    box-sizing: border-box;
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 8px;
+
+    width: 109px;
+    height: 32px;
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    /* Shadows/xs */
+    filter: drop-shadow(0px 1px 2px rgba(18, 18, 23, 0.05));
+    border-radius: 8px;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+
+    background-color: transparent;
+
+    bottom: 100%;
+    left: 75%;
+
+}
+
+#box-stun-indication-link {
+    position: relative;
+    left: 75%;
+    bottom: 100%;
+    color: white;
+}
+
+.box-stun-staticts{
+
+    position: relative;
+    margin-top: 20px;
+    left: 3%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 24px;
+    gap: 16px;
+
+    width: 1072px;
+    height: 84px;
+
+    background: #141414;
+    border-radius: 24px;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 4;
+    align-self: stretch;
+    flex-grow: 0;
+
+}
+
+
+#staticts-info-title {
+    color: white;
+    font-weight: bold;
+    font-size: 23px;
+
+}
+
+.staticts-container {
+    display: flex;
+    align-items: center;
+}
+
+.staticts-info {
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+}
+
+.staticts-info:not(:last-child) {
+    border-right: 1px solid #6d6d6d; /* Barrinha separadora vertical */
+}
+
+
+.staticts-info label {
+    margin: 0; /* Remove margens indesejadas */
+}
+
+.statistics-graphs-container {
+    position: relative;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 24px;
+gap: 16px;
+
+width: 1072px;
+height: 320px;
+
+background: #141414;
+border-radius: 24px;
+
+/* Inside auto layout */
+flex: none;
+order: 5;
+align-self: stretch;
+flex-grow: 0;
+margin-top: 30px;
+left: 3%;
+
+}
+
+
+.statistics-graphs-graph {
+/* Gráfico */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+isolation: isolate;
+
+width: 1024px;
+height: 216px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+}
+
+
+.line {
+    width: 100%;
+}
+
+.statistics-graphs-header input, button {
+    position: relative;
+    left: 40%;
+    margin-left: 20px;
+}
+
+.statistics-graphs-header input {
+
+    background-color: transparent;
+    color: gray;
+    border-radius: 10px;
+    margin-left: 10px;
+    border: 1px solid gray; /* Define a borda como 1px de espessura, sólida e preta */
+    height: 40px;
+    width: 180px;
+
+}
+
+.statistics-graphs-header button {
+
+    background-color: rgb(51, 51, 51);
+    color: white;
+    width: 180px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid gray; /* Define a borda como 1px de espessura, sólida e preta */
+
+
+
+}
+
+

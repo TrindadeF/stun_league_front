@@ -1,0 +1,68 @@
+
+<app-header></app-header>
+<div class="image">
+    <img src="assets/img/background.jpg">
+</div>
+
+<div class="overlay">
+    <form>
+    <h2 style="color: white;">Cadastro</h2>
+
+    <div class="fieldsForm">
+        <label for="name">Nome</label>
+        <input type="text" id="name" placeholder="Digite seu nome completo aqui" [(ngModel)]="userDto.name" [ngModelOptions]="{ standalone: true }" required="Campo obrigatório">
+        <div *ngIf="'name' in errorsValidation" class="text-danger"> {{ errorsValidation['name'] }}</div>
+    </div>
+
+
+    <div class="fieldsForm">
+        <label for="username">Nome do usuário</label>
+        <input type="text" id="username" placeholder="Digite seu nome de usuário aqui" [(ngModel)]="userDto.username" [ngModelOptions]="{ standalone: true }" required="Campo obrigatório">
+        <div *ngIf="'username' in errorsValidation" class="text-danger"> {{ errorsValidation['username'] }}</div>
+    </div>
+    
+    <div class="fieldsForm">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" placeholder="Digite seu e-mail aqui" [(ngModel)]="userDto.email" [ngModelOptions]="{ standalone: true }">
+        <div *ngIf="'email' in errorsValidation" class="text-danger"> {{ errorsValidation['email'] }}</div>
+    </div>
+    
+    <div class="fieldsForm">
+        <label for="cpf">CPF</label>
+        <input type="text" id="cpf" placeholder="Digite sua CPF aqui" [(ngModel)]="userDto.cpf" [ngModelOptions]="{ standalone: true }">
+        <div *ngIf="'cpf' in errorsValidation" class="text-danger"> {{ errorsValidation['cpf'] }}</div>
+    </div>
+
+    <div class="fieldsForm">
+        <label for="birthDate">Data de nascimento</label>
+        <input type="date" id="birthDate" [(ngModel)]="userDto.birthDate" [ngModelOptions]="{ standalone: true }">
+        <div *ngIf="'birthDate' in errorsValidation" class="text-danger"> {{ errorsValidation['birthDate'] }}</div>
+    </div>
+    
+    
+    <div class="fieldsForm">
+        <label for="password">Senha</label>
+        <input type="password" id="password" placeholder="Digite sua senha aqui" [(ngModel)]="userDto.password" [ngModelOptions]="{ standalone: true }">
+        <div *ngIf="'password' in errorsValidation" class="text-danger"> {{ errorsValidation['password'] }}</div>
+    </div>
+
+    <div class="fieldsForm">
+        <label for="confirmPassword">Confirmar senha</label>
+        <input type="password" id="confirmPassword" placeholder="Confirme sua senha aqui" [(ngModel)]="userDto.confirmPassword"  [ngModelOptions]="{standalone: true}">
+        <div *ngIf="errorMessagePassword" class="text-danger"> {{errorMessagePassword}}</div>
+
+    </div>
+
+
+
+    <div class="fieldsFormButtons">
+        <button type="button" class="btnSignin" [routerLink]="'/signin'" style="color: white;">Fazer login</button>
+        <button type="submit" style="background-color: red; color: rgb(255, 255, 255);" class="btnFinish" 
+                [disabled]="isSubmitting" 
+                (click)="submit()">Finalizar</button>
+        <div class=""></div> 
+        <div *ngIf="sucessMessage" class="text-sucess" style="color: rgb(67, 247, 67);"> {{sucessMessage}}</div>
+    </div>
+</form> 
+</div>
+    

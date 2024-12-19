@@ -1,0 +1,89 @@
+<div *ngIf="showAbortComponent">
+    <app-abort-screen></app-abort-screen>
+</div>
+
+<div *ngIf="alreadyGetWinnerTeam">
+    <app-winner-screen [winnerTeam]="teamWinner"></app-winner-screen>
+</div>
+
+
+<div *ngIf="!showAbortComponent && !alreadyGetWinnerTeam">
+    <app-sidebar></app-sidebar>
+</div>
+
+<div class="container-stun-background">
+    <div class="container">
+        <div class="header-container">
+            <h1 style="color: white;">Stun Match</h1>
+            <div class="informations">
+                <h2 style="color: gray;">Mapa escolhido: <span style="color: white;" class="map-name">{{ mapGame.toUpperCase() }}</span></h2>
+                <div class="black-box-container">
+                    <label style="color: rgb(255, 255, 255);" id="black-key-info">BlackBox: <span style="color: gray;">ID: <span style="color: white;">{{blackKey.idKey}}</span></span> <span style="color: gray;"> Senha: <span style="color: white;">{{blackKey.password}}</span></span></label>
+                </div>
+
+                <div class="options-buttons">
+                    <div class="buttons-op" (click)="voteToAbort()">
+                        <button>Abortar partida {{votesToAbort}}/{{maxVotesToAbort}}</button>
+                    </div>
+
+                    <div class="buttons-op">
+                        <button>Ir para TS3 time GR</button>
+                    </div>
+
+                    <div class="buttons-op">
+                        <button>Ir para TS3 time BL</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="teams-container">
+            <div class="team-a">
+                <div class="header-team-space">
+                    <h1 style="color: white;">Time BL</h1>
+                    <div class="vote-buttons-container">
+                        <button style="color: white;" class="buttons-vote-teams" id="btn-bl" (click)="voteTeam(TeamNames.BL)">Votar no time BL</button>
+                        <label id="votes-teams">{{votesTeams.votesTeamBL}}/{{maxVotesToWinTeam}} votos</label>
+                    </div>
+                    <div class="topics">
+                        <label style="color: white;" id="player-space-topic">Jogador</label>
+                        <label style="color: white;" id="player-losses-topic">Derrotas</label>
+                        <label style="color: white;" id="player-wins-topic">Vitórias</label>
+                        <label style="color: white;" id="player-points-topic">Pontos</label>
+                    </div>
+                </div>
+                
+                <div *ngFor="let player of teams.bl; let i = index" class="player-space">
+                    <img [src]="imageUrls.get(player.userId)" alt="{{player.username}}'s profile">
+                    <p style="color: gray;">{{ player.username }}</p>
+                    <p id="player-space-losses">{{ player.losses }}</p>
+                    <p id="player-space-wins">{{ player.wins }}</p>
+                    <p id="player-space-points">{{ player.points }}</p>
+                </div>
+
+                <div class="team-b">
+                    <div class="header-team-space">
+                        <h1 style="color: white;">Time GR</h1>
+                        <div class="vote-buttons-container">
+                            <button style="color: white;" class="buttons-vote-teams" id="btn-gr" (click)="voteTeam(TeamNames.GR)">Votar no time GR</button>
+                            <label id="votes-teams">{{votesTeams.votesTeamGR}}/{{maxVotesToWinTeam}} votos</label>
+                        </div>
+                        <div class="topics">
+                            <label style="color: white;" id="player-space-topic">Jogador</label>
+                            <label style="color: white;" id="player-losses-topic">Derrotas</label>
+                            <label style="color: white;" id="player-wins-topic">Vitórias</label>
+                            <label style="color: white;" id="player-points-topic">Pontos</label>
+                        </div>
+                    </div>
+                    
+                    <div *ngFor="let player of teams.gr; let i = index" class="player-space">
+                        <img [src]="imageUrls.get(player.userId)" alt="{{player.username}}'s profile">
+                        <p style="color: gray;">{{ player.username }}</p>
+                        <p id="player-space-losses">{{ player.losses }}</p>
+                        <p id="player-space-wins">{{ player.wins }}</p>
+                        <p id="player-space-points">{{ player.points }}</p>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>

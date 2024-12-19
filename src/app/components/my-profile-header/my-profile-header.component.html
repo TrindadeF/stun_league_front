@@ -1,0 +1,10 @@
+<div class="header">
+    <h1 style="color: white;">Meu perfil</h1>
+    <div class="header-h1">
+        <nav>
+            <button [ngClass]="{'active': isActive('/my-profile')}" [routerLink]="['/my-profile']">Estatísticas</button>
+            <button [ngClass]="{'active': isActive('/minhas-compras')}" >Minhas Compras</button>
+            <button [ngClass]="{'active': isActive('/my-profile-informations')}" [routerLink]="['/my-profile-informations']">Minhas informações</button>
+          </nav>
+
+    </div>

@@ -1,0 +1,160 @@
+.sidebar {
+    position: fixed; 
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+    gap: 24px;
+    width: 320px; 
+    height: 100vh; 
+    top: 0; 
+    left: 0; 
+    background: #141414;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 1000;
+}
+
+
+img {
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 12px 16px;
+    gap: 16px;
+
+    width: 100px;
+    height: 100px;
+    margin-top: 80px;
+
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+
+}
+
+.stun-match, .btn-options, .btn-options-ranking, .btn-options-leave {
+    position: relative;
+    background-color: transparent;
+    color: white;
+    border: none;
+    width: 280px;
+    height: 40px;
+    border-radius: 10px;
+    right: 20px;
+    margin-bottom: 10px;
+    text-indent: -110px;
+    line-height: 38px;
+}
+
+#span-store {
+    margin-right: 20px;
+}
+#span-stun {
+    margin-left: 30px;
+
+}
+
+#span-leave {
+    margin-right: 30px;
+
+}
+
+
+
+.sidebar-footer {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    padding: 10px;
+}
+
+.sidebar-footer img {
+    position: relative;
+    left: 250px;
+    margin-top: -55px;
+}
+
+.sidebar-footer-coins {
+    position: absolute;
+    bottom: 2px;
+    width: 100%;
+    padding: 10px;
+    left: 64%;
+
+}
+
+.sidebar-footer-coins img {
+    position: relative;
+    left: 75px;
+    margin-top: -55px;
+    width: 60px; 
+    height: 55px;
+}
+
+
+.container-sidebar-footer {
+    position: relative;
+    top: 42%;
+
+}
+
+
+.image-profile img {
+    position: relative;
+    width: 90px;
+    height: 80px;
+    border-radius: 50px;
+    top: 10px;
+    right: 10px;
+}
+
+.name {
+    position: relative;
+    color: white;
+    bottom: 50px;
+    left: 80px;
+}
+
+
+.active-button {
+    position: relative;
+    background-color: #660000    ;
+    color: white;
+    border: none;
+    width: 280px;
+    height: 40px;
+    border-radius: 10px;
+    right: 20px;
+    margin-bottom: 10px;
+    text-indent: -110px;
+    line-height: 38px;
+
+  }
+
+.points {
+    position: relative;
+    left: 7px;
+    margin-bottom: 12px;
+}
+  
+@media (max-width: 1600px) and (min-width: 901px) {
+    .container-sidebar-footer {
+        position: relative;
+        top: 28%; /* Ajuste a posição se necessário */
+        border-bottom: none;
+
+    }
+}
+
+@media (max-width: 1366px) and (min-width: 768px) {
+    .container-sidebar-footer {
+        position: relative;
+        top: 16%; /* Ajuste a posição se necessário */
+        border-bottom: none;
+        flex-direction: column;
+    }
+}

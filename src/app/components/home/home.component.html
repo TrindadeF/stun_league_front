@@ -1,0 +1,73 @@
+
+<app-sidebar></app-sidebar>
+<div class="container-stun-background">
+
+    <div class="container-stun">
+
+        <div class="container-fields">
+            <h1 style="color: whitesmoke;">Stun Match</h1>
+        </div>
+        <div class="container-fields">
+            <h2 style="color: rgb(170, 170, 170)">Jogue uma partida 5x5</h2>
+        </div>
+
+        <div class="image-homens">
+            <img src="assets/img/homens.png">
+        </div>
+
+        <div class="container-btn-join-queue">
+            <button  [disabled]="isButtonDisabled"  (click)="joinQueue() ">
+                Entrar na fila
+                 <img src="assets/img/play-queue.png" class="play-queue-image">
+                </button> 
+        </div>
+
+        <div class="container-btn-join-queue-players">
+            <label class="players-on">
+                {{players}} na fila agora
+                <img src="assets/img/users.png" style="margin-left: -3px; width: 20px; height: 20px; margin-top: 0px;">
+            </label>
+        </div>
+
+    </div>
+
+    <div class="container-steps">
+        <div class="box-step">
+            <img src="assets/img/step-1.png">
+            <label class="entry-box" style="color: white; font-size: large; font-weight: bold; font-size: 25px;">
+                Entrar na fila</label>
+            <label class="tips-step" style="color: rgb(182, 180, 180);">Dê um tapa no tédio e entre na fila.</label>
+            <label style="color: rgb(182, 180, 180);">Nós encontraremos companheiros de equipe e adversários à altura para você.</label>
+        </div>
+    
+        <div class="box-step">
+            <img src="assets/img/step-2.png">
+            <label class="entry-box" style="color: white; font-size: large; font-weight: bold; font-size: 25px;">Vetar mapas</label>
+            <label class="tips-step" style="color: rgb(182, 180, 180);">10 jogadores reunidos? É hora de vetar! Escolha um dos 7 mapas disponíveis que será o palco do embate.</label>
+        </div>
+    
+        <div class="box-step">
+            <img src="assets/img/step-3.png">
+            <label class="entry-box" style="color: white; font-size: large; font-weight: bold; font-size: 25px;">Anti-cheater</label>
+            <label class="tips-step" style="color: rgb(182, 180, 180);">Em seguida, ative o anti-cheater e sincronize com o Cross Fire para garantir uma partida justa.</label>
+        </div>
+
+    </div>
+
+    <div class="requirements-container">
+        <label class="requirements-label" style="color: rgb(206, 203, 203); font-weight: bold; font-size: 30px;" >
+            Requisitos para jogar</label>
+            
+        <div class="requirements">
+            <label>• Cross Fire <strong>instalado</strong> na máquina</label>
+            <label>• Ter uma conta no <strong>Cross Fire</strong></label>
+            <label>• Ter o <strong>Anti-cheater</strong> Black Box instalado na máquina</label>
+            <label>• Ter uma conta no <strong>Black Box</strong></label>
+            <label>• Servidor TS3 ou Discord</label>
+        </div>
+
+        <div class="requirements">
+            <button>Ir para anti-cheater</button>
+        </div>
+    </div>
+

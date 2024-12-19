@@ -1,0 +1,30 @@
+
+
+<app-header></app-header>
+<div class="image">
+    <img src="assets/img/background.jpg">
+</div>
+
+<div class="overlay">
+    <form (ngSubmit)="login()">
+        <h2 style="color: white;">Login</h2>
+        <div class="fieldsForm">
+            <label for="username" style="color: whitesmoke;">E-mail ou nome do usuário</label>
+            <input type="text" id="username" placeholder="Digite seu e-mail aqui" [(ngModel)]="userRequestLoginDTO.username" name="username">
+        </div>
+
+        <div class="fieldsForm">
+            <label for="password" style="color: whitesmoke;">Senha</label>
+            <input type="password" id="senha" placeholder="Digite sua senha aqui" [(ngModel)]="userRequestLoginDTO.password" name="password">
+        </div>
+
+
+    <div class="fieldsFormButtons">
+        <button type="button" class="btnSignup" [routerLink]="'/signup'"  style="color: whitesmoke;">Cadastrar-se</button>
+        <button type="submit" style="background-color: red; color: whitesmoke;" class="btnSignin" (click)="login()">Entrar</button>
+        <div *ngIf="errorMessage" class="text-danger"> {{errorMessage}}</div>
+
+    </div>
+</form>
+</div>
+    

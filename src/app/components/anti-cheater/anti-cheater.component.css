@@ -1,0 +1,200 @@
+.bg-img {
+    background-image: url("https://i.ibb.co/NtXJWKW/background.png");
+    height: 100vh; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+}
+
+.container {
+    position: fixed;
+    left: 40%;
+}
+
+h1 {
+    position: relative;
+    right: 30px;
+}
+
+
+#cancel-btn {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 8px;
+    background-color: transparent;
+    width: 148px;
+    height: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    filter: drop-shadow(0px 1px 2px rgba(18, 18, 23, 0.05));
+    border-radius: 8px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    color: white;
+}
+
+
+.buttons {
+    position: relative;
+    display: flex;
+    margin-top: 20px;
+    gap: 10px; 
+    left: 5px;
+}
+
+
+#prosseguir-btn {
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 8px;
+    background-color: #B60000;
+    width: 148px;
+    height: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    filter: drop-shadow(0px 1px 2px rgba(18, 18, 23, 0.05));
+    border-radius: 8px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    color: white;
+    border: none;
+    left: 72px;
+}
+
+#connect-btn {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 8px;
+    background-color: #B60000;
+    width: 300px;
+    height: 45px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    filter: drop-shadow(0px 1px 2px rgba(18, 18, 23, 0.05));
+    border-radius: 8px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    color: white;
+    border: none;
+    margin-bottom: 20px;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo preto com opacidade */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000; /* Certifique-se de que o modal esteja acima de outros conteúdos */
+}
+
+/* Estilize o conteúdo do modal */
+.modal-content {
+    background-color: rgba(30, 30, 30, 0.9);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    position: relative;
+    width: 80%;
+    max-width: 400px;
+    font-size: 18px; /* Ajuste o tamanho da fonte */
+}
+
+/* Destaque o ID e a Senha */
+.modal-content label {
+    display: block;
+    margin-top: 10px;
+    color: white;
+    font-size: 18px;
+}
+
+.modal-content .highlight {
+
+    color: green;
+    padding: 5px 10px;
+    border-radius: 4px;
+    display: inline-block;
+    font-weight: bold;
+}
+
+/* Botão "Fechar" */
+.modal-content button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal-content .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px; /* Ajuste o tamanho conforme necessário */
+    height: 30px; /* Ajuste o tamanho conforme necessário */
+    background: url('https://w7.pngwing.com/pngs/1008/558/png-transparent-computer-icons-button-close-angle-rectangle-logo-thumbnail.png') no-repeat center center; /* Substitua 'path/to/close.png' pelo caminho da sua imagem */
+    background-size: contain; /* Ajuste o tamanho da imagem para caber no botão */
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.3s;
+    opacity: 0.8;
+}
+
+.modal-content .close-btn:hover {
+    color: #d32f2f; /* Cor mais escura para hover */
+}
+
+.progress-dots {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px; /* Espaçamento entre as bolinhas */
+    margin-top: 20px;
+    left: 41%;
+
+  }
+  
+  .progress-dots div {
+    width: 20px; /* Tamanho das bolinhas */
+    height: 20px;
+    border-radius: 50%;
+    background-color: rgba(61, 60, 60, 0.5); /* Cinza claro por padrão */
+    transition: background-color 0.3s; /* Transição suave para a cor verde */
+  }
+  
+  .progress-dots div.confirmed {
+    background-color: #4caf50; /* Verde para bolinhas confirmadas */
+  }
+
+  #prosseguir-btn.disabled {
+    background-color: rgba(61, 60, 60, 0.5); /* Fundo meio preto e meio transparente */
+    color: #666; /* Cor de texto apagada */
+    cursor: not-allowed; /* Cursor de não permitido */
+  }
+
+
+  .timer {
+    position: relative;
+    top: 50px;
+    left: 70px;
+  }

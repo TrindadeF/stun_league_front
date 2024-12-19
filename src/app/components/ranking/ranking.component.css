@@ -1,0 +1,115 @@
+.background {
+    position: relative;
+    background-image: url('https://i.ibb.co/GMg8MSQ/background.png');
+    height: 100vh;
+}
+
+.ranking-container {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px;
+    gap: 16px;
+    width: 1072px;
+    height: 976px;
+    background: #141414;
+    border-radius: 24px;
+    left: 28%;
+}
+
+.players-container {
+    color: white;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column; /* Mantém os itens em linha vertical */
+    padding: 0px;
+    width: 100%; /* Ajusta a largura para preencher o contêiner pai */
+    height: auto; /* Ajusta a altura conforme necessário */
+    background: #141414;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+}
+
+.labels {
+    position: relative;
+    display: flex;
+    flex-direction: row; /* Alinha as labels horizontalmente */
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.labels label {
+    flex: 1; /* Distribui igualmente o espaço entre as labels */
+    text-align: center;
+}
+
+.player-space {
+    color: white;
+    display: flex;
+    flex-direction: row; /* Exibe os itens horizontalmente */
+    align-items: center;
+    padding: 8px 24px;
+    gap: 10px;
+    width: 100%; /* Preenche a largura disponível */
+    height: auto; /* Ajusta a altura conforme necessário */
+    background: #141414;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.player-space img {
+    width: 40px; /* Define o tamanho da imagem */
+    height: 40px; /* Define o tamanho da imagem */
+    border-radius: 50%; /* Torna a imagem circular */
+    margin-right: 10px; /* Adiciona espaço entre a imagem e o nome */
+}
+
+.player-space span {
+    font-weight: bold;
+    width: 50px; /* Largura fixa para o número */
+    margin-right: 2px; /* Aumenta o espaço entre o índice e o nome */
+}
+
+.player-space p {
+    margin: 0;
+    flex: 2; /* Garante que o nome ocupe mais espaço */
+    text-align: left; /* Alinha o texto à esquerda */
+}
+
+.player-space p:last-child {
+    flex: 1; /* Garante que os pontos ocupem menos espaço em relação ao nome */
+    text-align: right; /* Alinha o texto à direita */
+}
+
+#indice {
+    position: relative;
+    right: 140px;
+}
+
+#player {
+    position: relative;
+    right: 395px;
+}
+
+#points {
+    position: relative;
+    left: 130px;
+}
+
+#ranking-image-png  {
+    position: absolute;
+    left: 27%;
+    top: 40px;
+    width: 24px;
+}
+@media (max-width: 1366px) and (min-width: 768px) {
+    .ranking-container {
+        position: absolute;
+        width: 70%;
+    }
+    #points {
+        left: 12%;
+    }
+
+}

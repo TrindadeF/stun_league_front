@@ -1,0 +1,49 @@
+<div class="bg-img">
+    <!-- Container original que será ocultado quando showMapsContainer for verdadeiro -->
+    <div *ngIf="!showMapsContainer && !isMapWinner" class="container">
+      <div class="animation">
+        <div class="fields">
+          <h1 style="color: white;">Aguardando jogadores...</h1>
+          <p style="color: red; font-size: 22px;">{{players}}/10 Jogadores na fila</p>
+          <div class="buttons-container">
+            <button style="color: white;" (click)="leaveQueue()" class="cancelBtn">Cancelar</button>
+            <button 
+            *ngIf="isVisibleBtnQueueConfirm" 
+            (click)="confirmQueue()" 
+            [disabled]="alreadyConfirm" 
+            [class.disabled]="alreadyConfirm" 
+            class="startBtn">Iniciar</button>
+          </div>
+          <div *ngIf="isVisibleBtnQueueConfirm" class="progress-dots">
+            <div *ngFor="let dot of dots; let i = index" 
+                 [ngClass]="{'confirmed': i < messageConfirmPlayers}">
+            </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  
+    <div *ngIf="showMapsContainer" class="containers-maps">
+      <h1>Clique no mapa para vetar</h1>
+      <div class="maps-gallery">
+        <div class="map-and-votes"></div>
+        <img src="assets/img/Mapa 2.png" alt="viuva-t" (click)="selectMap($event)">
+        <img src="assets/img/Mapa 3.png" alt="porto-t" (click)="selectMap($event)">
+        <img src="assets/img/Mapa 4.png" alt="ankara-t" (click)="selectMap($event)">
+        <img src="assets/img/Mapa 5.png" alt="satelite-t" (click)="selectMap($event)">
+        <img src="assets/img/Mapa 6.png" alt="mexico-t" (click)="selectMap($event)">
+        <img src="assets/img/Mapa 7.png" alt="olho-aguia-2.0-t" (click)="selectMap($event)">
+      </div>
+      <button style="color: white;" (click)="leaveQueue()" class="cancelBtn">Cancelar</button>
+      <div *ngIf="timer" class="timer">
+        Tempo restante: {{ timer }} segundos
+      </div>
+    </div>
+
+    <div *ngIf="isMapWinner" class="map-winner-container">
+      <h1>MAPA ESCOLHIDO <h2>{{mapWinner.toUpperCase()}}</h2></h1>
+    </div>
+
+
+  </div>
+  

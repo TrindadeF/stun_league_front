@@ -1,0 +1,143 @@
+app-my-profile-header {
+    position: relative;
+    left: 30%;
+}
+
+.background-image {
+    position: relative;
+    background-image: url('https://i.ibb.co/F0JFk20/background.png');
+    height: 100%;
+    width: 100%;
+}
+
+.informations-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    gap: 16px;
+    width: 100%; /* Ajusta para ocupar toda a largura do container pai */
+    max-width: 1072px; /* Limita a largura máxima */
+    background: #141414;
+    border-radius: 24px;
+    left: 30%;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: white;
+}
+
+
+.header img {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+}
+
+.profile-image-container {
+    position: relative;
+    display: inline-block;
+}
+
+.profile-image-container img {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+}
+
+.edit-icon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    padding: 4px;
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
+}
+
+.edit-icon i {
+    pointer-events: none; /* Evita que o ícone seja clicável diretamente */
+}
+
+#profile-image-upload {
+    display: none; /* Esconde o input de arquivo */
+}
+
+.account-info,
+.social-medias,
+.configurations {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Cria duas colunas de largura igual */
+    gap: 16px; /* Espaçamento entre os itens */
+    width: 100%; /* Ocupa toda a largura disponível */
+}
+
+.account-info h2,
+.social-medias h2,
+.configurations h2 {
+    grid-column: span 2; /* Faz com que o título ocupe duas colunas */
+    color: white;
+    margin-bottom: 16px; /* Espaçamento abaixo do título */
+}
+
+.informations,
+.config {
+    display: flex;
+    flex-direction: column; /* Mantém o label e o input em uma coluna */
+    gap: 8px; /* Espaçamento entre o label e o input */
+}
+
+.informations label,
+.config label {
+    color: white; /* Ajusta a cor do texto do rótulo se necessário */
+}
+
+.informations input,
+.config input {
+    width: 100%; /* Faz com que o input preencha a largura disponível */
+    padding: 8px;
+    border: 1px solid #646464;
+    border-radius: 10px;
+    background-color: transparent;
+    color: white;
+}
+
+.full-width {
+    grid-column: span 2; /* Faz com que o item ocupe duas colunas da grid */
+}
+
+#description {
+    height: 140px;
+}
+
+.social-medias {
+    display: flex;
+    flex-direction: column; /* Coloca os itens um embaixo do outro */
+    gap: 16px; /* Espaçamento entre os itens */
+    width: 100%; /* Ocupa toda a largura disponível */
+}
+
+.midia {
+    display: flex;
+    flex-direction: column; /* Mantém o label e o input em uma coluna */
+    gap: 8px; /* Espaçamento entre o label e o input */
+    width: 100%; /* Faz com que o item preencha a largura disponível */
+}
+
+.midia label {
+    color: white; /* Ajusta a cor do texto do rótulo se necessário */
+}
+
+.midia input {
+    width: 100%; /* Faz com que o input preencha a largura disponível */
+    padding: 8px;
+    border: 1px solid #646464;
+    border-radius: 10px;
+    background-color: transparent;
+    color: white;
+}

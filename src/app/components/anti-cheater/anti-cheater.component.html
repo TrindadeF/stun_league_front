@@ -1,0 +1,40 @@
+<div class="bg-img">
+    <div class="container">
+        <div class="title">
+            <h1 id="connectar-h1" style="color: white;">Conectar Anti-cheater</h1>
+            <button id="connect-btn" (click)="openBoxBlackSecurityKeys()">Conectar</button>
+        </div>
+
+    <div class="buttons">
+        <button id="prosseguir-btn" 
+                (click)="confirmToStart()" 
+                [disabled]="alreadyConfirm" 
+                [class.disabled]="alreadyConfirm">
+            Prosseguir
+        </button>
+    </div>
+
+    <div class="progress-dots">
+        <div *ngFor="let dot of dots; let i = index" 
+             [ngClass]="{'confirmed': i < playersConfirmedToStart}">
+        </div>
+
+
+    </div>
+
+    <div class="timer" style="color: white;">{{timer}} segundos restantes</div>
+
+
+    <div *ngIf="containerKeysIsVisible" class="modal-overlay">
+        <div class="modal-content">
+            <button class="close-btn" (click)="closeBoxBlackSecurityKeys()"></button>
+            <h1 style="color: white;">Black Box Keys</h1>
+            <label>
+                Id: <span class="highlight">{{blackKey.idKey}}</span><br>
+                Senha: <span class="highlight">{{blackKey.password}}</span>
+            </label>
+        </div>
+        </div>
+    </div>
+</div>
+

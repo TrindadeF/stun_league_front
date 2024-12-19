@@ -1,0 +1,247 @@
+.container-stun-background {
+    position: absolute;
+    background-image: url('https://i.ibb.co/GMg8MSQ/background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 100vw; /* Garante que a largura cubra toda a viewport */
+    height: 120vh;
+}
+
+
+.container {
+    position: relative;
+    left: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px;
+    gap: 16px;
+    width: 1200px;
+    height: 800px;
+    background: #141414;
+    border-radius: 24px;
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+    margin-top: 50px;
+}
+
+.topics {
+
+        /* Cell */
+
+    box-sizing: border-box;
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px 24px;
+    gap: 10px;
+
+    width: 700px;
+    height: 40px;
+
+    background: #141414;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+
+
+
+}
+
+#player-losses-topic {
+    position: relative;
+    left: 720px;
+}
+
+#player-wins-topic {
+    position: relative;
+    left: 760px;
+}
+
+#player-points-topic {
+    position: relative;
+    left: 800px;
+}
+
+.player-space {
+/* Cell */
+
+    box-sizing: border-box;
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px 24px;
+    gap: 10px;
+
+    width: 700px;
+    height: 40px;
+
+    background: #141414;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+
+}
+
+#player-space-losses {
+    position: absolute  ;
+    left: 72%;
+    color: #F53D6B;
+}
+
+
+#player-space-wins {
+    position: absolute;
+    left: 81%;
+    color: #2DCA72    ;
+}
+
+#player-space-points {
+    position: absolute;
+    left: 88%;
+    color: white;
+}
+
+.player-space img {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+    right: 10px;
+}
+
+.buttons-vote-teams {
+ 
+    background-color: transparent;
+    border: 1px solid rgba(136, 135, 135, 0.514);
+    border-radius: 10px;
+    position: absolute;
+    left: 25%;
+}
+
+.vote-buttons-container {
+    display: flex;
+    flex-direction: row;
+    color: white;
+}
+
+.vote-buttons-container label {
+    position: absolute;
+    left: 450px;
+}
+
+.options-buttons {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    left: 700px;
+    top: 1%;
+}
+.options-buttons button {
+    white-space: nowrap;
+    margin-right: 10px; /* Espaço à direita de cada botão */
+    background-color: transparent;
+    color: white;
+    border: 1px solid rgba(136, 135, 135, 0.514);
+    border-radius: 10px;
+    height: 40px;
+
+}
+
+
+
+@media (max-width: 1600px) and (min-width: 900px) {
+    .container {
+        left: 150px;
+        bottom:  24px;
+    }
+}
+
+@media (max-width: 1440px) and (min-width: 900px) {
+    .container {
+        left: 150px;
+        width: 900px;
+
+    }
+
+    #player-losses-topic {
+        left: 510px;
+    }
+
+    #player-wins-topic {
+        left: 520px;
+    }
+
+    #player-points-topic {
+        left: 530px;
+    }
+
+    .options-buttons {
+        left: 500px;
+    }
+
+    
+    .options-buttons {
+        left: 400px;
+    }
+}
+@media (max-width: 1366px) and (min-width: 768px) {
+    .container {
+        font-size: small;
+        width: 900px;
+        left: 150px;
+        bottom:  40px;
+
+    }
+
+    .container-stun-background {
+        width: 100%;
+        height: 150vh;
+    }
+
+    .buttons-vote-teams {
+        position: relative;
+        left: 50%;
+    }
+
+    .buttons-vote-teams {
+        left: 10px;
+    }
+    
+    #votes-teams  {
+        position: relative;
+        left: 25px;
+    }
+
+    #player-losses-topic {
+        left: 520px;
+    }
+
+    #player-wins-topic {
+        left: 550px;
+    }
+
+    #player-points-topic {
+        left: 570px;
+    }
+
+    .options-buttons {
+        left: 500px;
+    }
+}

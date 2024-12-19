@@ -1,0 +1,75 @@
+.profile-header-container {
+    position: relative;
+    left: 15%;
+    width: 100vh;
+    height: 100vh;
+    margin-top: 40px;
+}
+
+.header {
+    position: relative;
+}
+
+nav {
+    position: relative;
+    display: inline-block;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+nav button {
+    background-color: transparent;
+    color: gray;
+    border: none;
+}
+
+
+.header-profile-info {
+    display: flex;
+    align-items: center; /* Alinha verticalmente os elementos */
+    gap: 15px; /* Espaçamento entre a imagem, nome e badges */
+    margin-top: 20px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.8em;
+    
+}
+
+.header-profile-img img {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+}
+
+.header-profile-name {
+    flex: 1; /* Permite que o nome ocupe o espaço necessário */
+    white-space: nowrap; /* Evita quebra de linha no nome */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Adiciona reticências se o nome for muito longo */
+}
+
+.header-badge-icons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 500px;
+    transform: translateX(300px); /* Move 20px para a esquerda */
+
+}
+
+nav button.active {
+
+    width: 167px;
+    height: 40px;
+
+    /* Red/900 */
+    background: #660000;
+    border-radius: 8px;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+    color: white;
+
+  }

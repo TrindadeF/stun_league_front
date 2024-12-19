@@ -1,0 +1,90 @@
+<app-sidebar></app-sidebar>
+
+<div class="container-stun-background">
+
+    <div class="profile-header-container">
+        <div class="header">
+            <div class="header-h1">
+    
+          <app-my-profile-header></app-my-profile-header>
+    
+            <div class="header-profile-info">
+                <div class="header-profile-img">
+                    <img src="{{imageSrc}}" alt="profile-img">
+                </div>
+    
+                <div class="header-profile-name">
+                    <label>{{name}}  ({{username}})</label>
+                </div>
+
+                <div class="header-badge-icons">
+                    <div *ngIf="this.haveYtInfo"  class="header-profile-yt">
+                        <img src="assets/img/yt-png.png" alt="">
+                    </div>
+        
+                    <div *ngIf="this.haveInstaInfo" class="header-profile-insta">
+                        <img src="assets/img/insta-png.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="boxes-container">
+        <div class="box-stun">
+            <label  style="color: gold; font-size: 20px;">Stun coins<img style="width: 30px;" src="assets/img/Stun-coin.png"></label>
+            <label style="color: gold; font-weight: bold; font-size: 22px;">$TUN {{this.playerResponseDTO.points}}</label>
+            <button id="box-stun-price-btn" style="color: white;">Ver preço</button>
+        </div>
+
+        <div class="box-stun">
+            <label  style="color: gray; font-size: 20px;">Indicações ativas</label>
+            <label style="color: white; font-weight: bold; font-size: 22px;">1200</label>
+            <a id="box-stun-indication-link">Link de indicação</a>
+        </div>
+
+    </div>
+
+    <div class="box-stun-staticts">
+
+        <div class="staticts-info">
+            <label id="staticts-info-title">Minhas estatísticas</label>
+        </div>
+
+        <div class="staticts-info">
+            <label style="color: white;">
+                <span style="color: white; font-weight: bold; font-size: 22px;">{{getTotalPartidas()}}</span> 
+                Total de partidas</label>
+        </div>
+
+        <div class="staticts-info">
+            <label style="color: green;"><span style="color: green; font-size: 22px; font-weight: bold;">
+                {{playerResponseDTO.wins}}</span>
+                Vitórias</label>
+        </div>
+
+        <div class="staticts-info">
+            <label style="color: #F53D6B;"><span style="color: #F53D6B; font-size: 22px; font-weight: bold;">
+                {{playerResponseDTO.losses}}</span>
+                Derrotas</label>
+        </div>
+
+    </div>
+
+    <div class="statistics-graphs-container">
+        <div class="statistics-graphs-header">
+            <label style="color: white; font-size: 23px; font-weight: bold;">Meu histórico</label>
+            <input type="date" id="startDate" (change)="filterData()">
+            <input type="date" id="endDate" (change)="filterData()">
+            <button (click)="resetFilter()">Todo o periodo</button>
+        </div>
+    
+        <div class="statistics-graphs-graph">
+            <div class="line" [chart]="lineChart"></div>
+        </div>
+    </div>
+
+
+    
+</div>
+
