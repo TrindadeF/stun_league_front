@@ -14,20 +14,35 @@ import { MatchComponent } from './components/match/match.component';
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
 import { MyProfileInformationsComponent } from './components/my-profile-informations/my-profile-informations.component';
 import { RankingComponent } from './components/ranking/ranking.component';
+import { Intro1Component } from './components/intro1/intro1.component';
 
 export const routes: Routes = [
-    { path: '', redirectTo: '/welcome', pathMatch: 'full' },
-    {path: "welcome", component: WelcomeComponent},
-    {path: "signup", component: SignupComponent},
-    {path: "signin", component: SigninComponent},
-    {path: "queue-waiting", component: QueueWaitingComponent, canActivate: [QueueGuard]},
-    {path: "anti-cheater", component: AntiCheaterComponent, canActivate: [antCheaterGuard] },
-    {path: "match", component: MatchComponent, canActivate: [matchGuard]},
-    {path: "home", component: HomeComponent, canActivate: [AuthGuard]},
-    {path: "my-profile", component: MyProfileComponent, canActivate: [AuthGuard]},
-    {path: "my-profile-informations", component: MyProfileInformationsComponent, canActivate: [AuthGuard]},
-    {path: "ranking", component: RankingComponent, canActivate: [AuthGuard]},
-
-
+  { path: '', redirectTo: '/welcome', pathMatch: 'full' },
+  { path: 'welcome', component: WelcomeComponent },
+  { path: 'signup', component: SignupComponent },
+  { path: 'signin', component: SigninComponent },
+  {
+    path: 'queue-waiting',
+    component: QueueWaitingComponent,
+    canActivate: [QueueGuard],
+  },
+  {
+    path: 'anti-cheater',
+    component: AntiCheaterComponent,
+    canActivate: [antCheaterGuard],
+  },
+  { path: 'match', component: MatchComponent, canActivate: [matchGuard] },
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  {
+    path: 'my-profile',
+    component: MyProfileComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'my-profile-informations',
+    component: MyProfileInformationsComponent,
+    canActivate: [AuthGuard],
+  },
+  { path: 'ranking', component: RankingComponent, canActivate: [AuthGuard] },
+  { path: 'intro', component: Intro1Component },
 ];
-

@@ -1,0 +1,68 @@
+.hero-section {
+  text-align: center;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.8),
+    rgba(0, 0, 0, 0.9)
+  );
+  padding: 50px 20px;
+  color: white;
+}
+
+.logo {
+  width: 100px;
+  margin-bottom: 20px;
+}
+
+.action-buttons {
+  margin-top: 20px;
+}
+
+.play-button {
+  background-color: #ff0000;
+  color: white;
+  margin: 10px;
+}
+
+.secondary-button {
+  margin: 10px;
+}
+
+.content-section {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.top-players,
+.about-section {
+  background-color: #1c1c1c;
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+}
+
+.filters {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  color: white;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: left;
+}
+
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
