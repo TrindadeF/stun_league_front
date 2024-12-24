@@ -1,71 +1,76 @@
-<div class="hero-section">
-  <img src="assets/logo.png" alt="Logo" class="logo" />
-  <h1>Dê um play agora em sua competição!</h1>
-  <p>Aproveite seu jogo, nós cuidaremos do resto</p>
+<div class="bg-img">
+  <div class="hero-section">
+    <img src="/assets/img/logo.png" alt="Logo" class="logo" />
+    <h1>Dê um play agora em sua competição!</h1>
+    <p>Aproveite seu jogo, nós cuidaremos do resto</p>
 
-  <div class="action-buttons">
-    <button mat-raised-button color="warn" class="play-button">
-      ▶ Jogar agora
-    </button>
-    <button mat-stroked-button class="secondary-button">
-      🛒 Conhecer Loja
-    </button>
-    <button mat-stroked-button class="secondary-button">🥇 Stun ranking</button>
-  </div>
-</div>
-
-<div class="content-section">
-  <div class="top-players">
-    <h2>Top 10 jogadores</h2>
-    <div class="filters">
-      <mat-select placeholder="Players">
-        <mat-option value="players">Players</mat-option>
-      </mat-select>
-      <mat-select placeholder="PUG">
-        <mat-option value="pug">PUG</mat-option>
-      </mat-select>
+    <div class="action-buttons">
+      <button mat-raised-button class="play-button" (click)="openAuthModal()">
+        ▶ Jogar agora
+      </button>
+      <button mat-stroked-button class="secondary-button">
+        🛒 Conhecer Loja
+      </button>
+      <button mat-stroked-button class="secondary-button">
+        🥇 Stun ranking
+      </button>
     </div>
-    <table>
-      <thead>
-        <tr>
-          <th>Jogador</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let player of players; let i = index">
-          <td>
-            <span>{{ i + 1 }}</span>
-            <img [src]="player.avatar" alt="Avatar" class="avatar" />
-            <span>{{ player.name }}</span>
-          </td>
-        </tr>
-      </tbody>
-    </table>
   </div>
 
-  <div class="about-section">
-    <h2>Sobre a Stun League</h2>
-    <mat-accordion>
-      <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title>Nossa moeda: Stun Coin</mat-panel-title>
-        </mat-expansion-panel-header>
-        <p>Detalhes sobre Stun Coin...</p>
-      </mat-expansion-panel>
+  <div class="content-section">
+    <div class="top-players">
+      <h2>Top 10 jogadores</h2>
+      <div class="filters">
+        <mat-select placeholder="Players">
+          <mat-option value="players">Players</mat-option>
+        </mat-select>
+        <mat-select placeholder="PUG">
+          <mat-option value="pug">PUG</mat-option>
+        </mat-select>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Posição</th>
+            <th>Jogador</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let player of players; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>
+              <img [src]="player.avatar" alt="Avatar" class="avatar" />
+              <span>{{ player.name }}</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-      <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title>Modos de jogo e tipos de partida</mat-panel-title>
-        </mat-expansion-panel-header>
-        <p>Descrição dos modos de jogo...</p>
-      </mat-expansion-panel>
+    <div class="about-section">
+      <h2>Sobre a Stun League</h2>
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>Nossa moeda: Stun Coin</mat-panel-title>
+          </mat-expansion-panel-header>
+          <p>Detalhes sobre Stun Coin...</p>
+        </mat-expansion-panel>
 
-      <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title>Team Speak</mat-panel-title>
-        </mat-expansion-panel-header>
-        <p>Informações sobre o uso do Team Speak...</p>
-      </mat-expansion-panel>
-    </mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>Modos de jogo e tipos de partida</mat-panel-title>
+          </mat-expansion-panel-header>
+          <p>Descrição dos modos de jogo...</p>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>Team Speak</mat-panel-title>
+          </mat-expansion-panel-header>
+          <p>Informações sobre o uso do Team Speak...</p>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
   </div>
 </div>

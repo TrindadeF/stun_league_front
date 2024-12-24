@@ -1,0 +1,78 @@
+<div class="auth-modal-container">
+  <mat-tab-group>
+    <mat-tab label="Login">
+      <div class="auth-form">
+        <h2>Login</h2>
+        <mat-form-field appearance="fill">
+          <mat-label>E-mail ou nome do usuário</mat-label>
+          <input matInput placeholder="Digite aqui" />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Senha</mat-label>
+          <input matInput type="password" placeholder="Digite aqui" />
+        </mat-form-field>
+
+        <div class="social-login">
+          <p>Utilizar</p>
+          <button mat-icon-button>
+            <img src="/assets/img/google-icon.png" alt="Google" />
+          </button>
+          <button mat-icon-button>
+            <img src="/assets/img/discord.png" alt="Discord" />
+          </button>
+        </div>
+
+        <div class="actions">
+          <button mat-button (click)="close()">Cadastrar-se</button>
+          <button mat-raised-button color="warn">Entrar</button>
+        </div>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Cadastro">
+      <div class="auth-form">
+        <h2>Cadastro</h2>
+        <mat-form-field appearance="fill">
+          <mat-label>Nome do usuário</mat-label>
+          <input matInput placeholder="Digite aqui" />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>E-mail</mat-label>
+          <input matInput placeholder="Digite aqui" />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>CPF</mat-label>
+          <input matInput placeholder="Digite aqui" />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Senha</mat-label>
+          <input matInput type="password" placeholder="Digite aqui" />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Confirmar senha</mat-label>
+          <input matInput type="password" placeholder="Digite aqui" />
+        </mat-form-field>
+
+        <div class="social-login">
+          <p>Utilizar</p>
+          <button mat-icon-button>
+            <img src="/assets/img/google-icon.png" alt="Google" />
+          </button>
+          <button mat-icon-button>
+            <img src="/assets/img/discord.png" alt="Discord" />
+          </button>
+        </div>
+
+        <div class="actions">
+          <button mat-button (click)="close()">Fazer login</button>
+          <button mat-raised-button color="warn">Finalizar</button>
+        </div>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

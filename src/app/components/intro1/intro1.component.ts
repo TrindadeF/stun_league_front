@@ -3,6 +3,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import { MatTableModule } from '@angular/material/table';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import {
   MatAccordion,
   MatExpansionPanel,
@@ -11,6 +12,7 @@ import {
 } from '@angular/material/expansion';
 import { CommonModule } from '@angular/common';
 import { PlayersService } from '../../services/players/players.service';
+import { AuthModalComponent } from '../auth-modal/auth-modal.component';
 
 @Component({
   selector: 'app-intro1',
@@ -25,6 +27,7 @@ import { PlayersService } from '../../services/players/players.service';
     MatExpansionPanel,
     MatExpansionPanelHeader,
     MatExpansionPanelTitle,
+    MatDialogModule,
   ],
   templateUrl: './intro1.component.html',
   styleUrl: './intro1.component.css',
@@ -32,7 +35,16 @@ import { PlayersService } from '../../services/players/players.service';
 export class Intro1Component implements OnInit {
   players: any[] = [];
 
-  constructor(private playerService: PlayersService) {}
+  constructor(
+    private playerService: PlayersService,
+    private dialog: MatDialog
+  ) {}
+
+  openAuthModal() {
+    this.dialog.open(AuthModalComponent, {
+      panelClass: 'auth-modal-container',
+    });
+  }
 
   ngOnInit(): void {
     this.fetchTop10Players();
@@ -43,9 +55,7 @@ export class Intro1Component implements OnInit {
       (data: any[]) => {
         this.players = data;
       },
-      (error: any) => {
-        console.error('Erro ao buscar o Top 10 jogadores:', error);
-      }
+      (error: any) => {}
     );
   }
 }
