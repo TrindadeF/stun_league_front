@@ -1,63 +1,66 @@
+.auth-modal {
+  max-width: 650px; /* Largura máxima */
+  border-radius: 17px; /* Bordas arredondadas */
+  padding: 0; /* Remove padding interno */
+  background-color: #1c1c1c; /* Fundo preto mais claro */
+  overflow: hidden; /* Garante que o conteúdo não vaze */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8); /* Sombra ao redor */
+}
+
 .auth-modal-container {
-  background-color: #000; /* Fundo preto */
-  border-radius: 10px; /* Bordas arredondadas */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Sombra */
-  color: #fff; /* Texto branco */
-  width: 600px; /* Largura fixa */
-  padding: 20px; /* Espaçamento interno */
-  max-height: 90vh; /* Altura máxima para telas menores */
-  overflow: auto; /* Garante que, caso o conteúdo seja maior, tenha rolagem externa */
   display: flex;
   flex-direction: column;
-  gap: 20px; /* Espaçamento entre elementos */
+  gap: 20px; /* Espaçamento interno */
+  padding: 20px;
+  width: 100%; /* Permite que o conteúdo se ajuste */
+  height: auto; /* Altura ajustada ao conteúdo */
+  overflow: hidden; /* Remove scroll indesejado */
 }
 
 .mat-tab-group {
-  background-color: #000; /* Fundo preto */
+  max-width: 100%;
+  background-color: transparent; /* Sem fundo para abas */
+  overflow: hidden;
+  color: white !important;
 }
 
 .mat-tab-label {
-  color: #fff; /* Texto branco */
+  color: #d4d4d4 !important;
+  font-size: 25px;
 }
 
 .mat-tab-label-active {
-  color: #ff4c4c; /* Aba ativa em vermelho */
-  border-bottom: 2px solid #ff4c4c; /* Linha inferior na aba ativa */
+  color: #ff4c4c;
+  border-bottom: 2px solid #ff4c4c;
 }
 
 .auth-form {
   display: flex;
   flex-direction: column;
-  gap: 15px; /* Espaçamento entre os campos */
+  gap: 15px; /* Espaçamento entre campos */
+  width: 100%; /* Ajusta largura do formulário */
+  height: auto; /* Altura baseada no conteúdo */
+  overflow: hidden;
 }
 
 .mat-form-field {
-  background-color: #1a1a1a; /* Fundo escuro */
-  color: #fff; /* Texto branco */
+  background-color: #2b2b2b; /* Fundo dos campos */
+  color: white;
   width: 100%;
-}
-
-.mat-form-field-appearance-fill .mat-form-field-flex {
-  background-color: #1a1a1a; /* Fundo dos campos */
-}
-
-.mat-form-field-label {
-  color: rgba(255, 255, 255, 0.6); /* Label em branco sem foco */
-}
-
-.mat-form-field-label.mat-focused {
-  color: #fff; /* Label em branco com foco */
-}
-
-.mat-input-element {
-  color: #fff; /* Texto digitado */
+  border-radius: 8px; /* Cantos arredondados */
 }
 
 .social-login {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 15px; /* Espaçamento entre ícones */
+}
+
+.social-login img {
+  width: 40px; /* Ícones maiores */
+  height: 40px;
+  cursor: pointer;
 }
 
 .actions {
@@ -68,24 +71,36 @@
 
 .mat-raised-button {
   background-color: #ff4c4c; /* Botão vermelho */
-  color: white; /* Texto branco */
+  color: white;
+  font-size: 16px;
+  border-radius: 8px;
 }
 
 .mat-raised-button:hover {
   background-color: #ff6666; /* Hover mais claro */
 }
 
+.h2 {
+  color: white;
+}
+
 .mat-button {
-  color: white; /* Botão simples com texto branco */
+  color: white;
+  font-size: 16px;
 }
 
 .mat-button:hover {
   background-color: rgba(255, 255, 255, 0.1); /* Fundo leve ao passar o mouse */
+  border-radius: 8px;
 }
 
 @media (max-width: 600px) {
+  .auth-modal {
+    width: 90%; /* Largura ajustada para telas menores */
+    max-height: 90vh; /* Limita altura */
+  }
+
   .auth-modal-container {
-    width: 90%; /* Ajusta a largura para telas menores */
-    max-height: 90vh; /* Limita a altura para telas pequenas */
+    padding: 15px; /* Reduz padding interno */
   }
 }

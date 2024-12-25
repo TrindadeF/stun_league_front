@@ -42,7 +42,8 @@ export class Intro1Component implements OnInit {
 
   openAuthModal() {
     this.dialog.open(AuthModalComponent, {
-      panelClass: 'auth-modal-container',
+      panelClass: 'auth-modal',
+      width: '650px',
     });
   }
 
