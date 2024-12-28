@@ -1,14 +1,14 @@
 /* Background */
 .bg-img {
   background-image: url("https://i.ibb.co/NtXJWKW/background.png");
-  height: 100vh;
+  height: 150vh;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* Alinha tudo verticalmente */
+  justify-content: flex-start;
 }
 
 /* Hero Section */
@@ -16,36 +16,35 @@
   text-align: center;
   padding: 50px 20px;
   color: white;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 
 .hero-section .logo {
-  width: 250px;
+  width: 450px;
   margin-bottom: 20px;
 }
 
 .hero-section h1 {
-  font-size: 48px;
+  font-size: 36px;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .hero-section p {
-  font-size: 20px;
-  margin-bottom: 60px;
+  font-size: 16px;
+  margin-bottom: 20px;
 }
 
 .action-buttons {
   display: flex;
-  justify-content: center;
-  gap: 20px;
   flex-direction: column;
   align-items: center;
+  gap: 15px;
 }
 
 .action-buttons .play-button {
-  font-size: 18px;
-  padding: 15px 50px;
+  font-size: 16px;
+  padding: 10px 40px;
   font-weight: bold;
   background-color: #ff4c4c;
   color: white;
@@ -54,8 +53,8 @@
 }
 
 .action-buttons .secondary-button {
-  font-size: 16px;
-  padding: 10px 30px;
+  font-size: 14px;
+  padding: 8px 30px;
   font-weight: bold;
   color: white;
   border: 1px solid white;
@@ -72,32 +71,39 @@
   justify-content: space-between;
   width: 80%;
   max-width: 1200px;
-  margin-top: 30px;
+  margin-top: 20px;
   color: white;
 }
 
-.top-players,
-.about-section {
+/* Top Players */
+.top-players {
   background-color: rgba(30, 30, 30, 0.9);
   padding: 20px;
   border-radius: 10px;
   width: 48%;
 }
 
-.top-players h2,
-.about-section h2 {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 15px;
+.title-filters {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
 .filters {
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
-  color: white;
+  gap: 10px;
+  color: white !important;
 }
 
+.filters mat-select {
+  width: 100px;
+  color: white !important;
+}
+
+.filters mat-option {
+  color: white !important;
+}
 table {
   width: 100%;
   border-collapse: collapse;
@@ -129,7 +135,20 @@ table tbody tr:nth-child(even) {
   margin-right: 10px;
 }
 
-/* Accordion Styling */
+/* About Section */
+.about-section {
+  background-color: rgba(30, 30, 30, 0.9);
+  padding: 20px;
+  border-radius: 10px;
+  width: 48%;
+}
+
+.about-section h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
 .about-section mat-accordion {
   background-color: transparent;
   color: white;
@@ -143,11 +162,8 @@ table tbody tr:nth-child(even) {
 
 .about-section mat-expansion-panel-header {
   font-weight: bold;
-  color: white;
-}
-
-.about-section mat-panel-title {
-  color: white;
+  font-size: 14px;
+  color: white !important;
 }
 
 /* Responsivo */
@@ -161,5 +177,10 @@ table tbody tr:nth-child(even) {
   .about-section {
     width: 100%;
     margin-bottom: 20px;
+  }
+
+  .title-filters {
+    flex-direction: column;
+    gap: 10px;
   }
 }

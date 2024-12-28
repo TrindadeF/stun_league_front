@@ -1,24 +1,30 @@
 <app-sidebar></app-sidebar>
 <div class="background">
-    <div class="ranking-container">
-        <div class="header" style="color: white;">
-            <h1>Ranking geral </h1>  <img src="assets/img/ranking-png.png" id="ranking-image-png">
-        </div>
-
-        <div class="players-container">
-            <div class="labels">
-                <label id="indice">#</label>
-                <label id="player">Jogador</label>
-                <label id="points">Pontos</label>
-            </div>
-
-            <!-- Exibe cada jogador com numeração -->
-            <div *ngFor="let player of filteredPlayers; let i = index" class="player-space">
-                <span style="color: gray;">{{ i + 1 }}</span> <!-- Exibe a numeração -->
-                <img [src]="imageUrls.get(player.userId)" alt="{{player.username}}'s profile" />
-                <p style="color: gray;">{{ player.username }}</p>
-                <p>{{ player.points }}</p>
-            </div>
-        </div>
+  <div class="ranking-container">
+    <div class="header" style="color: white">
+      <h1>Ranking geral</h1>
+      <img src="assets/img/ranking-png.png" id="ranking-image-png" />
     </div>
+
+    <div class="players-container">
+      <div class="labels">
+        <label id="indice">#</label>
+        <label id="player">Jogador</label>
+        <label id="points">Pontos</label>
+      </div>
+
+      <div
+        *ngFor="let player of filteredPlayers; let i = index"
+        class="player-space"
+      >
+        <span style="color: gray">{{ i + 1 }}</span>
+        <img
+          [src]="imageUrls.get(player.userId)"
+          alt="{{ player.username }}'s profile"
+        />
+        <p style="color: gray">{{ player.username }}</p>
+        <p>{{ player.points }}</p>
+      </div>
+    </div>
+  </div>
 </div>

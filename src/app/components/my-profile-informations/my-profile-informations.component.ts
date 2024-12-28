@@ -1,36 +1,42 @@
-import { Component, OnInit } from "@angular/core";
-import { CookieService } from "ngx-cookie-service";
-import { RequestUpdateSocialMediaDTO } from "../../models/RequestUpdateSocialMediaDTO";
-import { UserResponseDTO } from "../../models/UserResponseDTO";
-import { RequestsService } from "../../services/requests/requests.service";
-import { SOCIAL_MEDIA_LIST, SOCIAL_MEDIA_MAP } from "../../utils/utils";
-import { MyProfileHeaderComponent } from "../my-profile-header/my-profile-header.component";
-import { FormsModule } from "@angular/forms";
-import { CommonModule } from "@angular/common";
-import { RequestUpdateConfigurationDTO } from "../../models/RequestUpdateConfigurationDTO";
-import { SidebarComponent } from "../sidebar/sidebar.component";
-import { RequestUpdateUserInformationDTO } from "../../models/RequestUpdateUserInformationDTO";
-import { UserConfigurationDTO } from "../../models/UserConfigurationDTO";
-import { RequestUpdateImageProfileDTO } from "../../models/RequestUpdateImageProfileDTO";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { UserService } from "../../services/user-services/user.service";
+import { Component, OnInit } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
+import { RequestUpdateSocialMediaDTO } from '../../models/RequestUpdateSocialMediaDTO';
+import { UserResponseDTO } from '../../models/UserResponseDTO';
+import { RequestsService } from '../../services/requests/requests.service';
+import { SOCIAL_MEDIA_LIST, SOCIAL_MEDIA_MAP } from '../../utils/utils';
+import { MyProfileHeaderComponent } from '../my-profile-header/my-profile-header.component';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { RequestUpdateConfigurationDTO } from '../../models/RequestUpdateConfigurationDTO';
+import { SidebarComponent } from '../sidebar/sidebar.component';
+import { RequestUpdateUserInformationDTO } from '../../models/RequestUpdateUserInformationDTO';
+import { UserConfigurationDTO } from '../../models/UserConfigurationDTO';
+import { RequestUpdateImageProfileDTO } from '../../models/RequestUpdateImageProfileDTO';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { UserService } from '../../services/user-services/user.service';
 
 @Component({
   selector: 'app-my-profile-informations',
   standalone: true,
-  imports: [MyProfileHeaderComponent, FormsModule, CommonModule, SidebarComponent],
+  imports: [
+    MyProfileHeaderComponent,
+    FormsModule,
+    CommonModule,
+    SidebarComponent,
+  ],
   templateUrl: './my-profile-informations.component.html',
-  styleUrls: ['./my-profile-informations.component.css']
+  styleUrls: ['./my-profile-informations.component.css'],
 })
 export class MyProfileInformationsComponent implements OnInit {
   public imageProfileUrl!: string;
   public userId!: number;
   public userResponseDTO!: UserResponseDTO;
-  
+
   public socialLinksHash: { [key: number]: string } = {};
   public socialMediaList = SOCIAL_MEDIA_LIST;
   public socialMediaMap = SOCIAL_MEDIA_MAP;
-  public requestUpdateUserInformationDTO: RequestUpdateUserInformationDTO = new RequestUpdateUserInformationDTO();
+  public requestUpdateUserInformationDTO: RequestUpdateUserInformationDTO =
+    new RequestUpdateUserInformationDTO();
 
   mouseValue: string = '';
   dpiValue: string = '';
@@ -50,7 +56,6 @@ export class MyProfileInformationsComponent implements OnInit {
 
   imageSrc: string | ArrayBuffer | null = null;
 
-
   errorsValidation: string = '';
 
   constructor(
@@ -60,34 +65,34 @@ export class MyProfileInformationsComponent implements OnInit {
   ) {}
 
   async ngOnInit(): Promise<void> {
+    this.userId = Number(this.cookieService.get('id'));
+    this.imageProfileUrl =
+      this.cookieService.get('imageProfile') || 'default-profile-image-url';
 
-    this.userId = Number(this.cookieService.get("id"));
-    this.imageProfileUrl = this.cookieService.get("imageProfile") || "default-profile-image-url"; 
-
-    this.reqService.get<UserResponseDTO>(`/v1/users/informations/${this.userId}`)
+    this.reqService
+      .get<UserResponseDTO>(`/v1/users/informations/${this.userId}`)
       .subscribe(
         (data: UserResponseDTO) => {
           this.userResponseDTO = data;
           this.initializeSocialLinks();
-          console.log("USER CONFIGURATIONS: " + JSON.stringify(this.userResponseDTO.userConfigurations))
-          console.log("PEGANDO VALOR DO USERS CONFIGURATIONS: " + this.userResponseDTO.userConfigurations.find(m => m.configurationId === 5)?.value ?? "");
-
         },
         (error) => {
-          console.error("Erro ao obter informações do usuário:", error);
+          console.error('Erro ao obter informações do usuário:', error);
         }
       );
 
-      try {
-        this.imageSrc = await this.userService.getImageProfile();
-      } catch (error) {
-        console.error('Erro ao baixar imagem de perfil:', error);
-      }
+    try {
+      this.imageSrc = await this.userService.getImageProfile();
+    } catch (error) {
+      console.error('Erro ao baixar imagem de perfil:', error);
+    }
   }
 
   private initializeSocialLinks(): void {
-    this.socialMediaList.forEach(media => {
-      const userMedia = this.userResponseDTO.userSocialMedias.find(sm => sm.socialMediaId === media.id);
+    this.socialMediaList.forEach((media) => {
+      const userMedia = this.userResponseDTO.userSocialMedias.find(
+        (sm) => sm.socialMediaId === media.id
+      );
       this.socialLinksHash[media.id] = userMedia ? userMedia.value : '';
     });
   }
@@ -95,9 +100,8 @@ export class MyProfileInformationsComponent implements OnInit {
   public updateSocialLink(socialMediaId: number, event: Event): void {
     const input = event.target as HTMLInputElement;
     let value = input.value.trim();
-    console.log("ID: " + socialMediaId)
-    console.log("LINK: " + this.socialMediaMap[socialMediaId].baseUrl)
-
+    console.log('ID: ' + socialMediaId);
+    console.log('LINK: ' + this.socialMediaMap[socialMediaId].baseUrl);
 
     if (value && !/^https?:\/\//i.test(value)) {
       value = this.socialMediaMap[socialMediaId].baseUrl + value;
@@ -110,41 +114,46 @@ export class MyProfileInformationsComponent implements OnInit {
     const value = this.socialLinksHash[socialMediaId].trim();
 
     if (!value) {
-      console.warn("Valor vazio para a rede social ID:", socialMediaId);
+      console.warn('Valor vazio para a rede social ID:', socialMediaId);
       return;
     }
 
     const request: RequestUpdateSocialMediaDTO = {
       userId: this.userId,
       socialMediaId: socialMediaId,
-      value:  value
+      value: value,
     };
 
-    this.reqService.post<UserResponseDTO>('/v1/users/update-social-media', request)
+    this.reqService
+      .post<UserResponseDTO>('/v1/users/update-social-media', request)
       .subscribe(
         (data: UserResponseDTO) => {
           this.userResponseDTO = data;
-          console.log("Rede social atualizada com sucesso:", data);
+          console.log('Rede social atualizada com sucesso:', data);
         },
         (error) => {
-          console.error("Erro ao atualizar rede social:", error);
+          console.error('Erro ao atualizar rede social:', error);
         }
       );
-
   }
 
   public getSocialMediaPlaceholder(socialMediaId: number): string {
-    const media = this.socialMediaList.find(m => m.id === socialMediaId);
+    const media = this.socialMediaList.find((m) => m.id === socialMediaId);
     return media ? media.baseUrl : 'https://';
   }
 
-  
   public getUserConfigurationlaceholder(configurationId: number): string {
-    return this.userResponseDTO.userConfigurations.find(m => m.configurationId === configurationId)?.value ?? "";
+    return (
+      this.userResponseDTO.userConfigurations.find(
+        (m) => m.configurationId === configurationId
+      )?.value ?? ''
+    );
   }
 
   public getSocialMediaValue(socialMediaId: number): string {
-    const media = this.userResponseDTO.userSocialMedias.find(sm => sm.socialMediaId === socialMediaId);
+    const media = this.userResponseDTO.userSocialMedias.find(
+      (sm) => sm.socialMediaId === socialMediaId
+    );
     return media ? media.value : '';
   }
 
@@ -152,53 +161,55 @@ export class MyProfileInformationsComponent implements OnInit {
     const request: RequestUpdateConfigurationDTO = {
       userId: this.userId,
       configurationId: configurationId,
-      value:  this.CONFIGURATION_MAP[configurationId]
+      value: this.CONFIGURATION_MAP[configurationId],
     };
 
-    console.log("ID CONFIGURAÇÃO: " + configurationId)
-    console.log("VALOR CONFIGURAÇÃO: " + this.CONFIGURATION_MAP[configurationId])
-    Object.keys(this.CONFIGURATION_MAP).forEach(key => {
+    console.log('ID CONFIGURAÇÃO: ' + configurationId);
+    console.log(
+      'VALOR CONFIGURAÇÃO: ' + this.CONFIGURATION_MAP[configurationId]
+    );
+    Object.keys(this.CONFIGURATION_MAP).forEach((key) => {
       const value = this.CONFIGURATION_MAP[Number(key)];
       console.log(`Chave: ${key}, Valor: ${value}`);
     });
 
-    this.reqService.post<UserResponseDTO>('/v1/users/update-configuration', request)
-    .subscribe(
-      (data: UserResponseDTO) => {
-        this.userResponseDTO = data;
-        console.log("Rede social atualizada com sucesso:", data);
-      },
-      (error) => {
-        console.error("Erro ao atualizar rede social:", error);
-      }
-    );
-
+    this.reqService
+      .post<UserResponseDTO>('/v1/users/update-configuration', request)
+      .subscribe(
+        (data: UserResponseDTO) => {
+          this.userResponseDTO = data;
+          console.log('Rede social atualizada com sucesso:', data);
+        },
+        (error) => {
+          console.error('Erro ao atualizar rede social:', error);
+        }
+      );
   }
 
   public updateUserInformations() {
-    console.log(JSON.stringify(this.requestUpdateUserInformationDTO))
+    console.log(JSON.stringify(this.requestUpdateUserInformationDTO));
     this.requestUpdateUserInformationDTO.userId = this.userId;
-    this.reqService.post<UserResponseDTO>('/v1/users/update-user-informations', this.requestUpdateUserInformationDTO)
-    .subscribe(
-      (data: UserResponseDTO) => {
-        this.userResponseDTO = data;
-        if (this.userResponseDTO) {
-          this.errorsValidation = '';
+    this.reqService
+      .post<UserResponseDTO>(
+        '/v1/users/update-user-informations',
+        this.requestUpdateUserInformationDTO
+      )
+      .subscribe(
+        (data: UserResponseDTO) => {
+          this.userResponseDTO = data;
+          if (this.userResponseDTO) {
+            this.errorsValidation = '';
+          }
+        },
+        (error) => {
+          console.error('Erro ao atualizar rede social:', error);
+          this.errorsValidation = error.error.details;
+          console.log('ERRO: ' + this.errorsValidation);
         }
-      },
-      (error) => {
-        console.error("Erro ao atualizar rede social:", error);
-        this.errorsValidation = error.error.details
-        console.log("ERRO: " + this.errorsValidation)
-      }
-    );
+      );
 
     this.cookieService.deleteAll();
-
-    
   }
-
-
 
   onImageChange(event: any): void {
     const file = event.target.files[0];
@@ -216,7 +227,8 @@ export class MyProfileInformationsComponent implements OnInit {
       };
       reader.readAsDataURL(file);
 
-      const requestUpdateImageProfileDTO: RequestUpdateImageProfileDTO  = new RequestUpdateImageProfileDTO();
+      const requestUpdateImageProfileDTO: RequestUpdateImageProfileDTO =
+        new RequestUpdateImageProfileDTO();
       requestUpdateImageProfileDTO.file = file;
       requestUpdateImageProfileDTO.userId = this.userId;
 
@@ -224,16 +236,17 @@ export class MyProfileInformationsComponent implements OnInit {
       formData.append('file', file);
       formData.append('userId', this.userId.toString());
 
-      this.reqService.post<string>('/v1/users/upload-profile-image', formData)
-      .subscribe(
-      (data: string) => {
-        console.log(data)
-      },
-      (error) => {
-        this.errorsValidation = error.error.details
-        console.log("ERRO: " + this.errorsValidation)
-      }
-    );
+      this.reqService
+        .post<string>('/v1/users/upload-profile-image', formData)
+        .subscribe(
+          (data: string) => {
+            console.log(data);
+          },
+          (error) => {
+            this.errorsValidation = error.error.details;
+            console.log('ERRO: ' + this.errorsValidation);
+          }
+        );
     }
   }
 }

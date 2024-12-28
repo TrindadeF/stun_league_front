@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AbortScreenComponent } from "../abort-screen/abort-screen.component";
-import { SidebarComponent } from "../sidebar/sidebar.component";
+import { SidebarComponent } from '../sidebar/sidebar.component';
 import { RequestsService } from '../../services/requests/requests.service';
 import { PlayerResponseDTO } from '../../models/PlayerResponseDTO';
 import { CommonModule } from '@angular/common';
@@ -9,36 +8,33 @@ import { UserService } from '../../services/user-services/user.service';
 @Component({
   selector: 'app-ranking',
   standalone: true,
-  imports: [AbortScreenComponent, SidebarComponent, CommonModule],
+  imports: [SidebarComponent, CommonModule],
   templateUrl: './ranking.component.html',
-  styleUrls: ['./ranking.component.css']  // Corrigido para 'styleUrls' em vez de 'styleUrl'
+  styleUrls: ['./ranking.component.css'],
 })
 export class RankingComponent implements OnInit {
-
   public players!: PlayerResponseDTO[];
-  imageUrls: Map<number, string> = new Map(); // Armazena URLs das imagens
+  imageUrls: Map<number, string> = new Map();
   filteredPlayers: PlayerResponseDTO[] = [];
 
-  constructor(
-    private req: RequestsService,
-    private userService: UserService
-  ) {}
+  constructor(private req: RequestsService, private userService: UserService) {}
 
   ngOnInit(): void {
-    //this.players = this.generateMockPlayers();
-    this.loadPlayerImages(); // Carrega imagens após definir jogadores
+    this.loadPlayerImages();
 
-    // // Descomente e ajuste a chamada API se necessário
-    this.req.get<{ content: PlayerResponseDTO[] }>("/v1/players")
-    .subscribe((data) => {
-      this.players = data.content;
-      this.filteredPlayers = this.players.filter(player => player.points > 0);
-      // Atribui o array de jogadores à propriedade players
-      console.log("PLAYERS: " + JSON.stringify(this.players));
-      this.loadPlayerImages(); // Carrega imagens após obter jogadores da API
-    }, (error) => {
-      console.log(error);
-    });
+    this.req.get<{ content: PlayerResponseDTO[] }>('/v1/players').subscribe(
+      (data) => {
+        this.players = data.content;
+        this.filteredPlayers = this.players.filter(
+          (player) => player.points > 0
+        );
+        console.log('PLAYERS: ' + JSON.stringify(this.players));
+        this.loadPlayerImages();
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
   private generateMockPlayers(): PlayerResponseDTO[] {
@@ -48,7 +44,7 @@ export class RankingComponent implements OnInit {
       wins: (Math.floor(Math.random() * 10) + 1).toString(),
       losses: (Math.floor(Math.random() * 10) + 1).toString(),
       points: Math.floor(Math.random() * 100) + 1,
-      userId: index + 1
+      userId: index + 1,
     }));
   }
 
