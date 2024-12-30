@@ -15,6 +15,7 @@ import { MyProfileComponent } from './components/my-profile/my-profile.component
 import { MyProfileInformationsComponent } from './components/my-profile-informations/my-profile-informations.component';
 import { RankingComponent } from './components/ranking/ranking.component';
 import { Intro1Component } from './components/intro1/intro1.component';
+import { PlansComponent } from './components/plans/plans.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/welcome', pathMatch: 'full' },
@@ -45,4 +46,5 @@ export const routes: Routes = [
   },
   { path: 'ranking', component: RankingComponent, canActivate: [AuthGuard] },
   { path: 'intro', component: Intro1Component },
+  { path: 'plans', component: PlansComponent },
 ];
