@@ -2,7 +2,7 @@
 .plans-page {
   display: flex;
   height: 100vh;
-  background-color: #1e1e1e;
+  background-image: url("https://i.ibb.co/NtXJWKW/background.png");
   color: white;
   font-family: Arial, sans-serif;
 }
@@ -81,6 +81,7 @@
 .content h1 {
   font-size: 36px;
   margin-bottom: 20px;
+  margin-left: 20px;
 }
 
 .plans-container {
@@ -106,7 +107,7 @@
 }
 
 .plan h2 {
-  font-size: 24px;
+  font-size: 30px;
   margin-bottom: 10px;
 }
 
